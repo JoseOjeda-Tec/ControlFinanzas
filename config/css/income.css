@@ -1,0 +1,235 @@
+.form-filtro-ingresos{
+    font-size: 0.8rem;
+}
+
+.input-filtro-ingresos{
+    width: 10rem;
+    margin: 0.5rem;
+    height: 1.7rem;
+    border: none;
+    padding: 0;
+    text-align: center;
+}
+
+.select-ingresos{
+    width: 10rem;
+    margin: 0.5rem;
+    height: 2rem;
+    border: none;
+}
+
+.ing-btn-side{
+    width: 10rem;
+    margin: 0.5rem;
+    height: 2rem;
+    border: none;
+    padding: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+#btn-filter-ing, #btn-clean-filter-ing{
+    background-color: #6B7280;
+}
+
+.form-ingreso-mes-activo{
+    width: 60rem;
+    height: 2rem;
+    font-size: 0.8rem;
+}
+
+#form-meses-ing{ width: 8rem; }
+#form-anios-ing{ width: 6rem; margin-right: 0; }
+
+.form-ingresos{
+    width: 60rem;
+    height: 2rem;
+    font-size: 0.8rem;
+}
+
+.input-ingresos{
+    padding: 0;
+    padding-left: 10px;
+    height: 1.83rem;
+    margin: 0;
+    margin-right: 0.2rem;
+    border: 1px solid #ccc !important;
+    width: 8rem;
+    font-size: 0.8rem;
+}
+
+#descripcion-ing{ width: 15rem; margin-right: 0.19rem; } 
+#monto-ing{ width: 8rem; } 
+
+.select-form-ingresos {
+    padding-left: 10px;
+    height: 2rem;
+    margin: 0;
+    margin-right: 0.2rem;
+    margin-top: 0px;
+    border: 1px solid #ccc !important;
+}
+
+#form-tipo-ing{ width: 8rem; }
+#form-bank-ing{ width: 10rem; }
+
+.form-ingresos-bottom{
+    background-color: #F5F5F5;
+    width: 60rem;
+    height: 2rem;
+}
+
+.ing-btn, .edit-ing-btn{
+    width: 8rem;
+    height: 2rem;
+    margin: 0;
+    font-size: 0.8rem;
+    border: none;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #fff;
+}
+
+#btn-abrir-ing, #btn-cerrar-ing{ background-color: #3B82F6; }
+#btn-save-ing, #btn-edit-ing{ background-color: #52C41A; }
+#btn-clean-ing{ background-color: #34495e; }
+#btn-cancel-ing{ background-color: #B00020;}
+
+.listado-registro-ing{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 34rem;
+    width: 59rem;
+    background-color: #fff;
+    margin: 1rem 1rem 1rem 0rem;
+}
+
+.data-info{
+    display: flex;
+    margin: 0.5rem;
+    background-color: #10B981;
+    height: 2rem;
+    padding: 6px;
+    font-size: 0.8rem;
+}
+
+.data-info-exp{
+    display: flex;
+    margin: 0.5rem;
+    background-color: #fd6b6b;
+    height: 2rem;
+    padding: 6px;
+    font-size: 0.8rem;
+}
+
+.totales-registro-ing{
+    width: 59rem;
+    height: 3rem;
+    justify-content: flex-end;
+}
+
+.total-text-ing{
+    font-size: 0.67rem;
+    color: #111;
+    margin-right: 1rem;
+    margin-left: 2rem;
+}
+
+#total-ing{
+    font-size: 0.8rem;
+}
+
+.desc-ing{
+    width: 20rem;
+    margin: 0px 5px 0px 16px;
+}
+
+.desc-ing>p{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.monto-ing{
+    width: 8rem;
+    margin: 0px 5px 0px 5px;
+}
+
+.monto-ing>p{
+    background-color: #2ECC71;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.monto-ing-exp{
+    width: 8rem;
+    margin: 0px 5px 0px 5px;
+}
+
+.monto-ing-exp>p{
+    background-color: #B00020;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.bank-ing{
+    width: 15rem;
+    margin: 0px 5px 0px 5px;
+}
+
+.bank-ing>p{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.dias-ing{
+    width: 8rem;
+    margin: 0px 0px 0px 5px;
+    text-align: right;
+}
+
+.dias-ing>p{
+    color: #fff;
+}
+
+.opc-ing{
+    display: flex;
+    width: 4rem;
+    margin: 0px 5px 0px 5px;
+    justify-content: center;
+}
+
+.btn-opc-item{
+    width: 1.7rem;
+    border-radius: 5px;
+    border: none;
+    margin: 0 2px 0 2px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.edit-btn{
+    background-color: #6200EE;
+}
+
+.delete-btn{
+    background-color: #B00020;
+}
+
+.info-item{
+    width: 58rem;
+    text-align: center;
+    color: #fff;
+}
+
+.info-item>h5{
+    font-size: 0.8rem;
+}

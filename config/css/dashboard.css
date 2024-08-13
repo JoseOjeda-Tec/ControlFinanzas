@@ -1,0 +1,49 @@
+.content-info-body{
+    width: 70rem !important;
+}
+
+.summarys{
+    display: flex;
+    /* background-color: aquamarine; */
+    width: 73rem;
+    height: 15rem;
+    margin: 16px;
+}
+
+.summary-card{
+    width: 25rem;
+    height: 15rem;
+    text-align: center;
+    align-content: center;
+}
+
+.summary-card>a{
+    text-decoration: none;
+}
+
+.summary-card > i{
+    font-weight: 800;
+    font-size: 2.4rem;
+    margin-left: 10px;
+}
+
+.summary-income{ background-color: #BAF5BE; }
+.summary-expenses{ background-color: #F5BBBA; }
+.summary-rest{ background-color: #AFDEB0; }
+
+.value-summary{
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.value-income, .desc-income{ color: #00BD0D; }
+.value-expenses, .desc-expenses{ color: #F3312E; }
+.value-rest, .desc-rest{ color: #019F04; }
+
+.desc-summary{
+    font-size: 0.8rem;
+    margin-bottom: 0;
+    font-weight: 600;
+}

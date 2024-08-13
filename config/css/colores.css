@@ -1,0 +1,39 @@
+:root {
+    --primary-color: #6200EE;
+    --secondary-color: #03DAC6;
+    --background-color: #F5F5F5;
+    --surface-color: #FFFFFF;
+    --error-color: #B00020;
+    --on-primary-color: #FFFFFF;
+    --on-secondary-color: #000000;
+
+    --Turquoise: #1ABC9C;
+    --Emerald: #2ECC71;
+    --Peter-River: #3498DB;
+    --Amethyst: #9B59B6;
+    --Wet-Asphalt: #34495E;
+    --Sun-Flower: #F1C40F;
+    --Carrot: #E67E22;
+    --Alizarin: #E74C3C;
+
+    --Blue: #3B82F6;
+    --Indigo: #6366F1;
+    --Purple: #8B5CF6;
+    --Pink: #EC4899;
+    --Red: #EF4444;
+    --Yellow: #F59E0B;
+    --Green: #10B981;
+    --Gray: #6B7280;
+
+    --Primary: #1890FF;
+    --Success: #52C41A;
+    --Warning: #FAAD14;
+    --Error: #FF4D4F;
+    --Info: #1890FF;
+    --Light-Gray: #F0F0F0;
+    --Dark-Gray: #595959;
+  }
+
+  body {
+    background-color: var(--background-color);
+  }
