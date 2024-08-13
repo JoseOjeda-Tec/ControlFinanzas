@@ -4,7 +4,7 @@
         private $db; 
 
         public function __construct(){
-            $this->db = new PDO('mysql:host=localhost;dbname=controlfinanzas', "root", "");//local
+            $this->db = new PDO('mysql:host=db;dbname=controlfinanzas', "myuser", "mypassword");//local
         }
     
         private function setNames() {

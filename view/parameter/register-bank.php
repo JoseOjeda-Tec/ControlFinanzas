@@ -37,7 +37,7 @@
                     <div class="title-filtros-busqueda text-center p-3"><h6 class="m-0">Formularios</h6></div>
                     <div class="list-forms">
                         <button type="button" id="btn-bank-form" class="form-btn-side btn-dark-ing form-btn-active">Bancos <i class="fa-solid fa-piggy-bank"></i></button>
-                        <button type="button" id="btn-user-form" class="form-btn-side btn-dark-ing">Usuarios <i class="fa-solid fa-users"></i></button>
+                        <!-- <button type="button" id="btn-user-form" class="form-btn-side btn-dark-ing">Usuarios <i class="fa-solid fa-users"></i></button> -->
                     </div>
                 
                 </div>
