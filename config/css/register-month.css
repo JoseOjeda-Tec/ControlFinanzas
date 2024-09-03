@@ -1,0 +1,64 @@
+.active-month-panel{
+    height: 44rem !important;
+}
+
+.data-info-panel{
+    display: flex;
+    width: 58rem;
+    margin: 0.5rem;
+}
+
+.data-info{
+    display: flex;
+    background-color: #10B981;
+    margin: 0.5rem;
+    height: 3rem;
+    padding: 6px;
+    font-size: 0.8rem;
+    width: 18rem;
+}
+
+.data-info-exp{
+    display: flex;
+    background-color: #fd6b6b;
+    margin: 0.5rem;
+    height: 3rem;
+    padding: 6px;
+    font-size: 0.8rem;
+    width: 18rem;
+}
+
+.desc-ing{
+    width: 20rem;
+    margin: 0px 5px 0px 16px;
+}
+
+.desc-ing>p{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.opc-ing{
+    display: flex;
+    width: 4rem;
+    margin: 0px 5px 0px 5px;
+    justify-content: center;
+}
+
+.btn-opc-item{
+    width: 2.5rem;
+    border-radius: 5px;
+    border: none;
+    margin: 0 2px 0 2px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.edit-btn{
+    background-color: #52C41A;
+}
+
+.delete-btn{
+    background-color: #B00020;
+}

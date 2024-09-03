@@ -8,6 +8,36 @@ function asignaFuncionBotonesPrincipales(){
     btnparameters.addEventListener("click", ()=>{ location.href ="../../view/parameter/register-bank.php"; });
 }
 
+function asignaFuncionBotonesParametros(){
+
+    const btnbank = document.querySelector("#btn-bank-form"); 
+    const btnmont = document.querySelector("#btn-mont-form"); 
+    const btnlogs = document.querySelector("#btn-logs-form"); 
+    const btnuser = document.querySelector("#btn-user-form");
+
+    btnbank.addEventListener("click", ()=>{ location.href ="../../view/parameter/register-bank.php"; });
+    btnmont.addEventListener("click", ()=>{ location.href ="../../view/parameter/register-month.php"; });
+    btnlogs.addEventListener("click", ()=>{ location.href ="../../view/parameter/register-logs.php"; });
+    btnuser.addEventListener("click", ()=>{ location.href ="../../view/parameter/register-user.php"; });
+
+}
+
+function getMonthAcive(){
+    
+    let dataReturn = ajaxReturn(
+        'POST', 
+        '../../controller/month-active-controller.php', 
+        (xhr) => {
+            var response = JSON.parse(xhr.responseText);
+            return response;
+        }, 
+        { accion: 'getMonthAcive' }
+    );
+
+    return dataReturn;
+
+}
+
 function cargaMesesSelect(className, messelect = 0){
 
     var html = "";
@@ -104,7 +134,7 @@ function cargaSelectBanco(className, bancoselect = 0){
             }else{
                 html += "<option value=\"0\">Seleccione Banco</option>";
                 response.forEach(element => { 
-                    html += "<option value=\"" + element["id_bank"] + "\"" + (element["id_bank"] == bancoselect ? " selected" : "") + ">" + element["descripcion"] + "</option>";
+                    html += "<option value=\"" + element["id_bank"] + "\"" + (element["id_bank"] == bancoselect ? " selected" : "") + ">" + element["descripcion"] + " - " + element["tipo_cuenta"] + "</option>";
                 });
             }
             

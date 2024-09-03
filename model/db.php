@@ -4,7 +4,8 @@
         private $db; 
 
         public function __construct(){
-            $this->db = new PDO('mysql:host=db;dbname=controlfinanzas', "myuser", "mypassword");//local
+            // $this->db = new PDO('mysql:host=db;dbname=controlfinanzas', "myuser", "mypassword");//localDocker
+            $this->db = new PDO('mysql:host=localhost;dbname=controlfinanzas', "root", "");//localXammp
         }
     
         private function setNames() {

@@ -36,9 +36,9 @@
             
                     <div class="title-filtros-busqueda text-center p-3"><h6 class="m-0">Formularios</h6></div>
                     <div class="list-forms">
-                        <button type="button" id="btn-bank-form" class="form-btn-side btn-dark-ing form-btn-active">Bancos <i class="fa-solid fa-piggy-bank"></i></button>
+                        <button type="button" id="btn-bank-form" class="form-btn-side btn-dark-ing">Bancos <i class="fa-solid fa-piggy-bank"></i></button>
                         <button type="button" id="btn-mont-form" class="form-btn-side btn-dark-ing">Mes Activo <i class="fa-regular fa-calendar"></i></button>
-                        <button type="button" id="btn-logs-form" class="form-btn-side btn-dark-ing">Logs <i class="fa-solid fa-timeline"></i></button>
+                        <button type="button" id="btn-logs-form" class="form-btn-side btn-dark-ing form-btn-active">Logs <i class="fa-solid fa-timeline"></i></button>
                         <button type="button" id="btn-user-form" class="form-btn-side btn-dark-ing">Usuarios <i class="fa-solid fa-users"></i></button>
                     </div>
                 
@@ -47,22 +47,8 @@
                 <div class="content-info-body mb-3 ml-0 mr-3 mt-0">
 
                     <div class="title-body-active d-flex justify-content-center text-center m-3">
-                        <h1 id="title-body-id" class="title-body">Registro de bancos</h1>
+                        <h1 id="title-body-id" class="title-body">Listado de Logs</h1>
                     </div>
-
-                    <div class="form-parametros form-bank-parameters d-flex align-items-center justify-content-center mb-3 ml-0 mr-3 mt-3">
-                        <input type="hidden" id="id-edit-bank">
-                        <input type="text" id="descripcion" placeholder="Descripción" class="input-bank">
-                        <input type="text" id="tipo-cuenta" placeholder="Tipo cuenta" class="input-bank">
-                    </div>
-                    
-                    <div class="form-parametros-bottom d-flex align-items-center justify-content-center mb-3 ml-0 mr-3 mt-3">
-                        <button type="button" id="btn-clean" class="parameters-btn btn-dark-ing">Limpiar <i class="fa-solid fa-broom"></i></button>
-                        <button type="button" id="btn-save" class="parameters-btn btn-dark-ing">Guardar <i class="fa-solid fa-floppy-disk"></i></button>
-                        <button type="button" id="btn-edit" class="edit-parameters-btn btn-dark-ing">Editar <i class="fa-solid fa-floppy-disk"></i></button>
-                    </div>
-
-                    <div class="listado-registro-parameters"> </div>
 
                 </div>
 
@@ -73,5 +59,5 @@
 
 </body>
 <script src="../../config/js/general.js"></script>
-<script src="../../config/js/register-bank.js"></script>
+<script src="../../config/js/register-logs.js"></script>
 </html>

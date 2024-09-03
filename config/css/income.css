@@ -59,7 +59,7 @@
 }
 
 #descripcion-ing{ width: 15rem; margin-right: 0.19rem; } 
-#monto-ing{ width: 8rem; } 
+#monto-ing{ width: 6rem; } 
 
 .select-form-ingresos {
     padding-left: 10px;
@@ -70,8 +70,9 @@
     border: 1px solid #ccc !important;
 }
 
-#form-tipo-ing{ width: 8rem; }
+#form-tipo-ing{ width: 6rem; }
 #form-bank-ing{ width: 10rem; }
+#form-month-active-ing{ width: 8rem; }
 
 .form-ingresos-bottom{
     background-color: #F5F5F5;

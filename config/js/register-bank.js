@@ -1,5 +1,6 @@
 window.onload = function() {
     asignaFuncionBotonesPrincipales();
+    asignaFuncionBotonesParametros();
     desactivaBotonEdicion();
     asignaFuncionBotones();
     getBanks();

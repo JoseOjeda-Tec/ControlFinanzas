@@ -7,6 +7,11 @@ window.onload = function() {
     getIncomes();
 }
 
+function formatMoney(nunero){
+    let money = new Intl.NumberFormat('de-DE').format(nunero);
+    return money;
+}
+
 function desactivaBotonEdicion(charge = 0){
 
     const btnedit = document.querySelector(".edit-ing-btn");
@@ -24,8 +29,11 @@ function desactivaBotonEdicion(charge = 0){
 
 function cargaSelects(){
 
+    const mesActual = getMonthAcive()[0]['id_month_active'];
+
     cargaSelectBanco("#form-bank-ing");
     cargaTipoCuentaSelect("#form-tipo-ing");
+    cargaMesesSelect("#form-month-active-ing", mesActual);
 
 }
 
@@ -52,9 +60,11 @@ function limpiarCampos(){
     const btnedit = document.querySelector(".edit-ing-btn");
     const btnsave = document.querySelector("#btn-save-ing");
     const fecha_ing = document.querySelector("#fecha-ing");
+    const mesActual = getMonthAcive()[0]['id_month_active'];
 
     cargaSelectBanco("#form-bank-ing");
     cargaTipoCuentaSelect("#form-tipo-ing");
+    cargaMesesSelect("#form-month-active-ing", mesActual);
 
     desc.value = "";
     monto.value = "";
@@ -68,7 +78,7 @@ function restartDefault(){
 
     var datecomplete = new  Date();
     var fullyear = datecomplete.getFullYear();
-    var mesActual = datecomplete.getMonth() + 1;
+    var mesActual = getMonthAcive()[0]['id_month_active'];
 
     const desc = document.querySelector("#desc-flt");
 
@@ -106,6 +116,7 @@ function getIncomes(){
             var total_ing_input = 0;
             var total_egr_input = 0;
             var total_rest_input = 0;
+            var mensaje = "";
 
             if(Object.entries(response).length == 0){
                 html += "<div class=\"data-info\">";
@@ -119,7 +130,7 @@ function getIncomes(){
 
                     html += "<div class=\"" + classData + "\">";
                         html += "<div class=\"desc-ing\"><p id=\"data-desc\">" + element["descripcion"] + "</p></div>";
-                        html += "<div class=\"" + classMonto + "\"><p id=\"data-monto\">$" + element["monto"] + "</p></div>";
+                        html += "<div class=\"" + classMonto + "\"><p id=\"data-monto\">$" + formatMoney(element["monto"]) + "</p></div>";
                         html += "<div class=\"bank-ing\"><p id=\"data-bank\">" + element["desc_bank"] + "/" + element["desc_type"] + "</p></div>";
                         html += "<div class=\"dias-ing\"><p id=\"data-fecha-ing\">" + element["fecha_ing"] + "</p></div>";
                         html += "<div class=\"opc-ing\">";
@@ -131,6 +142,9 @@ function getIncomes(){
                     if(element['type_trans'] == 'INCOME'){ total_ing_input = total_ing_input + (element["monto"] * 1); }
                     if(element['type_trans'] == 'EXPENSES'){ total_egr_input = total_egr_input + (element["monto"] * 1); }
                     total_rest_input = total_ing_input - total_egr_input;
+
+                    mensaje = total_rest_input < 0 ? "<p>El valor esta en numeros negativos : " + total_rest_input + "</p>" : "";
+
                     total_rest_input = total_rest_input < 1 ? 0 : total_rest_input;
                     
                 });
@@ -140,11 +154,13 @@ function getIncomes(){
             const ttling = document.querySelector("#total-ing");
             const ttlegr = document.querySelector("#total-egr");
             const ttlrest = document.querySelector("#total-rest");
+            const msjinput = document.querySelector(".mensaje"); 
             cnting.innerHTML = "";
             cnting.innerHTML = html;
-            ttling.value = "$" + total_ing_input;
-            ttlegr.value = "$" + total_egr_input;
-            ttlrest.value = "$" + total_rest_input;
+            ttling.value = "$" + formatMoney(total_ing_input);
+            ttlegr.value = "$" + formatMoney(total_egr_input);
+            ttlrest.value = "$" + formatMoney(total_rest_input);
+            msjinput.innerHTML = mensaje;
         }, 
         parametros
     );
@@ -164,6 +180,7 @@ function getIncome(id_income){
                 const monto = document.querySelector("#monto-ing");
                 const fecha_ing = document.querySelector("#fecha-ing");
                 cargaSelectBanco("#form-bank-ing", element["id_bank"]);
+                cargaMesesSelect("#form-month-active-ing", element["id_month_active"]);
                 cargaTipoCuentaSelect("#form-tipo-ing", element["type_trans"]);
 
                 desc.value = element["descripcion"];
@@ -186,6 +203,7 @@ function setIncomes(){
     const fecha_ing = document.querySelector("#fecha-ing");
     const slctipo = document.querySelector("#form-tipo-ing");
     const slcbank = document.querySelector("#form-bank-ing");
+    const slcmonth = document.querySelector("#form-month-active-ing");
 
     boolData = desc.value == "" ? false : true;
     if(boolData == false){ alert('Debe escribir la descripcion del ingreso'); return; }
@@ -206,7 +224,8 @@ function setIncomes(){
             'monto' : monto.value,
             'fecha_ing' : fecha_ing.value,
             'tipo' : slctipo.value,
-            'id_bank' : slcbank.value
+            'id_bank' : slcbank.value,
+            'id_month_active' : slcmonth.value
         };
     
         ajax(
@@ -235,6 +254,7 @@ function updateIncomes(){
     const fecha_ing = document.querySelector("#fecha-ing");
     const slctipo = document.querySelector("#form-tipo-ing");
     const slcbank = document.querySelector("#form-bank-ing");
+    const slcmonth = document.querySelector("#form-month-active-ing");
 
     boolData = desc.value == "" ? false : true;
     if(boolData == false){ alert('Debe escribir la descripcion del ingreso'); return; }
@@ -256,7 +276,8 @@ function updateIncomes(){
             'monto' : monto.value,
             'fecha_ing' : fecha_ing.value,
             'tipo' : slctipo.value,
-            'id_bank' : slcbank.value
+            'id_bank' : slcbank.value,
+            'id_month_active' : slcmonth.value
         };
     
         ajax(

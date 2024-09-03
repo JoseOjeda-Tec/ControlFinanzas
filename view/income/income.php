@@ -55,10 +55,11 @@
                     <div class="form-ingresos d-flex align-items-center justify-content-center mb-3 ml-0 mr-3 mt-3">
                         <input type="hidden" id="id-edit-ing">
                         <input type="text" id="descripcion-ing" placeholder="Descripción" class="input-ingresos">
-                        <input type="text" id="monto-ing" placeholder="Monto Ingreso" class="input-ingresos">
+                        <input type="number" min="1" pattern="^[0-9]+" id="monto-ing" placeholder="Monto Ingreso" class="input-ingresos">
                         <input type="date" id="fecha-ing" class="input-ingresos">
                         <select id="form-tipo-ing" class="select-form-ingresos select-form-tipo-ing"></select>
                         <select id="form-bank-ing" class="select-form-ingresos select-form-bank-ing"></select>
+                        <select id="form-month-active-ing" class="select-form-ingresos select-form-month-active-ing"></select>
                     </div>
                     
                     <div class="form-ingresos-bottom d-flex align-items-center justify-content-center mb-3 ml-0 mr-3 mt-3">
@@ -77,7 +78,8 @@
                         <h3 class="total-text-ing">Total de restante <i class="fa-solid fa-arrow-right"></i></h3>
                         <input type="text" id="total-rest" placeholder="0" class="input-ingresos" readonly>
                     </div>
-
+                    <div class="mensaje d-flex aling-center">
+                    </div>
                 </div>
 
             </div>

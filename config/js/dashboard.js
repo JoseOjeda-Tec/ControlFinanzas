@@ -3,11 +3,16 @@ window.onload = function() {
     asignaDatos();
 }
 
+function formatMoney(nunero){
+    let money = new Intl.NumberFormat('de-DE').format(nunero);
+    return money;
+}
+
 function asignaDatos(){
 
     var datecomplete = new  Date();
     var fullyear = datecomplete.getFullYear();
-    var mesActual = datecomplete.getMonth() + 1;
+    var mesActual = getMonthAcive()[0]['id_month_active'];
 
     var parametros = {
         accion: 'getIncomesFilter',
@@ -44,9 +49,9 @@ function asignaDatos(){
             const ttlegr = document.querySelector("#id-expenses");
             const ttlrest = document.querySelector("#id-rest");
             
-            ttling.text = "$" + total_ing_input;
-            ttlegr.text = "$" + total_egr_input;
-            ttlrest.text = "$" + total_rest_input;
+            ttling.text = "$" + formatMoney(total_ing_input);
+            ttlegr.text = "$" + formatMoney(total_egr_input);
+            ttlrest.text = "$" + formatMoney(total_rest_input);
         }, 
         parametros
     );
