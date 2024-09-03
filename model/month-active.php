@@ -44,22 +44,12 @@
 
         public function updateMonthActive($data){
             
-            $id_bank = $data['id_month_active'];
-    
-            date_default_timezone_set('America/Santiago');
-            $mes = date("n");
-            $anio = date("Y");
-            $dia = date("j");
-            $mes = ($mes * 1) < 10 ? '0' . $mes : $mes;
-            $dia = ($dia * 1) < 10 ? '0' . $dia : $dia;
-            $fecha = $dia.'-'.$mes.'-'.$anio;
-            $hora = date("H:i:s");
-            $fecha_completa = "$fecha $hora";
+            $id_month_active = $data['id_month_active'];
     
             $sql = "UPDATE month_active SET active = 0 WHERE id_month_active = (SELECT id_month_active FROM month_active WHERE active = 1);";
             $result = $this->db->con($sql);
 
-            $sql = "UPDATE month_active SET active = 1 WHERE id_month_active = $id_bank;";
+            $sql = "UPDATE month_active SET active = 1 WHERE id_month_active = $id_month_active;";
             $result = $this->db->con($sql);
             if ($result) return 1;
             else return 0; 

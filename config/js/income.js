@@ -4,7 +4,7 @@ window.onload = function() {
     cargaSelects();
     asignaFuncionBotones();
     restartDefault();
-    getIncomes();
+    getIncomes(getBankAcive()[0]['id_bank']);
 }
 
 function formatMoney(nunero){
@@ -90,7 +90,7 @@ function restartDefault(){
 
 }
 
-function getIncomes(){
+function getIncomes(id_bank = 0){
 
     const desc = document.querySelector("#desc-flt");
     const slcbank = document.querySelector("#bank-flt");
@@ -100,7 +100,7 @@ function getIncomes(){
     var parametros = {
         accion: 'getIncomesFilter',
         'desc' : desc.value,
-        'id_bank' : slcbank.value,
+        'id_bank' : id_bank == 0 ? slcbank.value : id_bank,
         'mes' : slcmes.value,
         'anio' : slcanio.value
     };

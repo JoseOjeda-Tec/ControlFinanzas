@@ -14,12 +14,13 @@
 
         public function getBanks(){
 
-            $sql = "SELECT id_bank, descripcion, tipo_cuenta, id_user, fecha_set, fecha_upd, fecha_dlt FROM bank WHERE data_active = 1";
+            $sql = "SELECT * FROM bank WHERE data_active = 1";
             foreach ($this->db->con($sql) as $res) {
                 $this->bank[] = [
                     'id_bank' => $res['id_bank'], 
                     'descripcion' => $res['descripcion'], 
-                    'tipo_cuenta' => $res['tipo_cuenta'], 
+                    'tipo_cuenta' => $res['tipo_cuenta'],
+                    'active' => $res['active'], 
                     'id_user' => $res['id_user'], 
                     'fecha_set' => $res['fecha_set'], 
                     'fecha_upd' => $res['fecha_upd'], 
@@ -32,12 +33,32 @@
 
         public function getBank($id_bank){
 
-            $sql = "SELECT id_bank, descripcion, tipo_cuenta, id_user, fecha_set, fecha_upd, fecha_dlt FROM bank WHERE data_active = 1 AND id_bank = $id_bank";
+            $sql = "SELECT * FROM bank WHERE data_active = 1 AND id_bank = $id_bank";
             foreach ($this->db->con($sql) as $res) {
                 $this->bank[] = [
                     'id_bank' => $res['id_bank'], 
                     'descripcion' => $res['descripcion'], 
                     'tipo_cuenta' => $res['tipo_cuenta'], 
+                    'active' => $res['active'], 
+                    'id_user' => $res['id_user'], 
+                    'fecha_set' => $res['fecha_set'], 
+                    'fecha_upd' => $res['fecha_upd'], 
+                    'fecha_dlt' => $res['fecha_dlt']
+                ];
+            }
+            return $this->bank;
+
+        }
+
+        public function getBankAcive(){
+
+            $sql = "SELECT * FROM bank WHERE active = 1";
+            foreach ($this->db->con($sql) as $res) {
+                $this->bank[] = [
+                    'id_bank' => $res['id_bank'], 
+                    'descripcion' => $res['descripcion'], 
+                    'tipo_cuenta' => $res['tipo_cuenta'], 
+                    'active' => $res['active'], 
                     'id_user' => $res['id_user'], 
                     'fecha_set' => $res['fecha_set'], 
                     'fecha_upd' => $res['fecha_upd'], 
@@ -93,6 +114,20 @@
             $result = $this->db->con($sql);
             if ($result) return 1;
             else return 0; 
+
+        }
+
+        public function updateActiveBank($data){
+            
+            $id_bank = $data['id_bank'];
+
+            $sql = "UPDATE bank SET active = 0 WHERE id_bank = (SELECT id_bank FROM bank WHERE active = 1);";
+            $result = $this->db->con($sql);
+
+            $sql = "UPDATE bank SET active = 1 WHERE id_bank = $id_bank;";
+            $result = $this->db->con($sql);
+            if ($result) return 1;
+            else return 0;
 
         }
 

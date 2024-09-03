@@ -17,7 +17,7 @@ function asignaDatos(){
     var parametros = {
         accion: 'getIncomesFilter',
         'desc' : '',
-        'id_bank' : 0,
+        'id_bank' : getBankAcive()[0]['id_bank'],
         'mes' : mesActual,
         'anio' : fullyear
     };

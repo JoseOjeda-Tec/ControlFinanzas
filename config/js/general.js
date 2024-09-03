@@ -38,6 +38,22 @@ function getMonthAcive(){
 
 }
 
+function getBankAcive(){
+    
+    let dataReturn = ajaxReturn(
+        'POST', 
+        '../../controller/bank-controller.php', 
+        (xhr) => {
+            var response = JSON.parse(xhr.responseText);
+            return response;
+        }, 
+        { accion: 'getBankAcive' }
+    );
+
+    return dataReturn;
+
+}
+
 function cargaMesesSelect(className, messelect = 0){
 
     var html = "";
@@ -122,6 +138,8 @@ function ajaxReturn(type, url, fn = () => {}, dataJson) {
 
 function cargaSelectBanco(className, bancoselect = 0){
     
+    bancoselect = bancoselect == 0 ? getBankAcive()[0]['id_bank'] : bancoselect;
+
     ajax(
         'POST', 
         '../../controller/bank-controller.php', 
@@ -130,9 +148,9 @@ function cargaSelectBanco(className, bancoselect = 0){
             var html = "";
 
             if(Object.entries(response).length == 0){
-                html += "<option value=\"0\">Seleccione Banco</option>";
+                html += "";
             }else{
-                html += "<option value=\"0\">Seleccione Banco</option>";
+                html += "";
                 response.forEach(element => { 
                     html += "<option value=\"" + element["id_bank"] + "\"" + (element["id_bank"] == bancoselect ? " selected" : "") + ">" + element["descripcion"] + " - " + element["tipo_cuenta"] + "</option>";
                 });

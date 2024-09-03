@@ -123,6 +123,10 @@
     cursor: pointer;
 }
 
+.chk-btn{
+    background-color: #52C41A;
+}
+
 .edit-btn{
     background-color: #6200EE;
 }

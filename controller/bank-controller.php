@@ -25,6 +25,13 @@
             echo json_encode($array_data);
 
         break;
+
+        case "getBankAcive":
+
+            $array_data = $banks->getBankAcive();
+            echo json_encode($array_data);
+
+        break;
         
         case "setBanks":
 
@@ -67,6 +74,36 @@
             ];
 
             $response = $banks->updateBank($data);
+
+            if($response == 1){
+
+                $data_logs = [
+                    'desc' => 'Modificación de datos',
+                    'module' => 'Parametros',
+                    'sub_module' => 'Bancos',
+                    'action' => 'Update',
+                    'id_user' => '1'
+                ];
+
+                $response_log = $all_logs->setLogs($data_logs);
+            }
+
+            $resp_json = [
+                "respuesta" => $response == 1 ? 1 : 0,
+                "mensaje" => $response == 1 ? "Consulta exitosa" : "Error en la consulta"
+            ];
+
+            echo json_encode($resp_json);
+
+        break;
+
+        case "updateActiveBank":
+
+            $data = [
+                'id_bank' => $data_input['id_bank']
+            ];
+
+            $response = $banks->updateActiveBank($data);
 
             if($response == 1){
 

@@ -55,6 +55,7 @@ function getBanks(){
         (xhr) => {
             var response = JSON.parse(xhr.responseText);
             var html = "";
+            var btnactive = "";
 
             if(Object.entries(response).length == 0){
                 html += "<div class=\"data-info\">";
@@ -62,11 +63,15 @@ function getBanks(){
                 html += "</div>";
             }else{
                 response.forEach(element => { 
+
+                    btnactive = element["active"] == 0 ? "<button type=\"button\" class=\"chk-btn btn-opc-item\" onclick=\"updateActiveBank(" + element["id_bank"] + ")\"><i class=\"fa-solid fa-circle-check\"></i></button>" : "";
+
                     html += "<div class=\"data-info\">";
                         html += "<div class=\"id-bank\"><p id=\"data-id\">" + element["id_bank"] + "</p></div>";
                         html += "<div class=\"desc-bank\"><p id=\"data-desc\">" + element["descripcion"] + "</p></div>";
                         html += "<div class=\"tipo-bank\"><p id=\"data-tipo\">" + element["tipo_cuenta"] + "</p></div>";
                         html += "<div class=\"opc-bank\">";
+                            html += btnactive;
                             html += "<button type=\"button\" class=\"edit-btn btn-opc-item\" onclick=\"getBank(" + element["id_bank"] + ")\"><i class=\"fa-solid fa-pen\"></i></button>";
                             html += "<button type=\"button\" class=\"delete-btn btn-opc-item\" onclick=\"deleteBank(" + element["id_bank"] + ")\"><i class=\"fa-solid fa-xmark\"></i></button>";
                         html += "</div>";
@@ -179,6 +184,28 @@ function updateBank(){
             parametros 
         );
     }
+
+}
+
+function updateActiveBank(id_bank){
+
+    var parametros = {
+        'accion' : 'updateActiveBank',
+        'id_bank' : id_bank
+    };
+
+    ajax(
+        'POST', 
+        '../../controller/bank-controller.php', 
+        (xhr) => {
+            var response = JSON.parse(xhr.responseText);
+            if(response["respuesta"] == 1){
+                console.log(response["mensaje"]);
+                getBanks();
+            }
+        }, 
+        parametros 
+    );
 
 }
 
