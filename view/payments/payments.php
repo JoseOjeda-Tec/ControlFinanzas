@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../config/fontawesome/css/solid.css"/>
     <link rel="stylesheet" href="../../config/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../config/css/style.css">
-    <link rel="stylesheet" href="../../config/css/income.css">
+    <link rel="stylesheet" href="../../config/css/payments.css">
 
 </head>
 <body>
@@ -25,8 +25,8 @@
                 </div>
                 <div class="menus">
                     <button id="btn-menu-home" type="button" class="menu-btn-dark menu-btn"><i class="fa-solid fa-house"></i> <p>Home</p></button>
-                    <button id="btn-menu-income" type="button" class="menu-btn-dark menu-btn menu-btn-active"><i class="fa-solid fa-money-bill-1"></i> <p>Ing/Egr</p></button>
-                    <button id="btn-menu-payments" type="button" class="menu-btn-dark menu-btn"><i class="fa-solid fa-money-bill-1"></i> <p>Pagos</p></button>
+                    <button id="btn-menu-income" type="button" class="menu-btn-dark menu-btn"><i class="fa-solid fa-money-bill-1"></i> <p>Ing/Egr</p></button>
+                    <button id="btn-menu-payments" type="button" class="menu-btn-dark menu-btn menu-btn-active"><i class="fa-solid fa-money-bill-1"></i> <p>Pagos</p></button>
                     <button id="btn-menu-parameters" type="button" class="menu-btn-dark menu-btn"><i class="fa-solid fa-gears"></i> <p>Parametros</p></button>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 <div class="content-info-body mb-3 ml-0 mr-3 mt-0">
 
                     <div class="title-body-active d-flex justify-content-center text-center m-3">
-                        <h1 id="title-body-id" class="title-body">Registro de Ingresos/Egresos</h1>
+                        <h1 id="title-body-id" class="title-body">Registro de Pagos</h1>
                     </div>
                 
                     <div class="form-ingresos d-flex align-items-center justify-content-center mb-3 ml-0 mr-3 mt-3">
@@ -61,7 +61,6 @@
                         <select id="form-tipo-ing" class="select-form-ingresos select-form-tipo-ing"></select>
                         <select id="form-bank-ing" class="select-form-ingresos select-form-bank-ing"></select>
                         <select id="form-month-active-ing" class="select-form-ingresos select-form-month-active-ing"></select>
-                        <select id="form-year-active-ing" class="select-form-ingresos select-form-year-active-ing"></select>
                     </div>
                     
                     <div class="form-ingresos-bottom d-flex align-items-center justify-content-center mb-3 ml-0 mr-3 mt-3">
@@ -71,17 +70,7 @@
                     </div>
                 
                     <div class="listado-registro-ing"> </div>
-                
-                    <div class="totales-registro-ing d-flex align-items-center"> 
-                        <h3 class="total-text-ing">Total de ingresos <i class="fa-solid fa-arrow-right"></i></h3>
-                        <input type="text" id="total-ing" placeholder="0" class="input-ingresos" readonly>
-                        <h3 class="total-text-ing">Total de egresos <i class="fa-solid fa-arrow-right"></i></h3>
-                        <input type="text" id="total-egr" placeholder="0" class="input-ingresos" readonly>
-                        <h3 class="total-text-ing">Total de restante <i class="fa-solid fa-arrow-right"></i></h3>
-                        <input type="text" id="total-rest" placeholder="0" class="input-ingresos" readonly>
-                    </div>
-                    <div class="mensaje d-flex aling-center">
-                    </div>
+
                 </div>
 
             </div>
@@ -91,5 +80,5 @@
 
 </body>
 <script src="../../config/js/general.js"></script>
-<script src="../../config/js/income.js"></script>
+<script src="../../config/js/payments.js"></script>
 </html>

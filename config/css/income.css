@@ -58,7 +58,7 @@
     font-size: 0.8rem;
 }
 
-#descripcion-ing{ width: 15rem; margin-right: 0.19rem; } 
+#descripcion-ing{ width: 12rem; margin-right: 0.19rem; } 
 #monto-ing{ width: 8rem; } 
 
 .select-form-ingresos {
@@ -72,7 +72,8 @@
 
 #form-tipo-ing{ width: 6rem; }
 #form-bank-ing{ width: 10rem; }
-#form-month-active-ing{ width: 8rem; }
+#form-month-active-ing{ width: 7rem; }
+#form-year-active-ing{ width: 5rem; }
 
 .form-ingresos-bottom{
     background-color: #F5F5F5;

@@ -49,6 +49,7 @@
                 'tipo' => $data_input['tipo'],
                 'id_bank' => $data_input['id_bank'],
                 'id_month_active' => $data_input['id_month_active'],
+                'id_year_active' => $data_input['id_year_active'],
                 'id_user' => '1'
             ];
 
@@ -86,6 +87,7 @@
                 'tipo' => $data_input['tipo'],
                 'id_bank' => $data_input['id_bank'],
                 'id_month_active' => $data_input['id_month_active'],
+                'id_year_active' => $data_input['id_year_active']
             ];
 
             $response = $income->updateIncomes($data);

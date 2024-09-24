@@ -27,6 +27,7 @@
                 <div class="menus">
                     <button id="btn-menu-home" type="button" class="menu-btn-dark menu-btn"><i class="fa-solid fa-house"></i> <p>Home</p></button>
                     <button id="btn-menu-income" type="button" class="menu-btn-dark menu-btn"><i class="fa-solid fa-money-bill-1"></i> <p>Ing/Egr</p></button>
+                    <button id="btn-menu-payments" type="button" class="menu-btn-dark menu-btn"><i class="fa-solid fa-money-bill-1"></i> <p>Pagos</p></button>
                     <button id="btn-menu-parameters" type="button" class="menu-btn-dark menu-btn menu-btn-active"><i class="fa-solid fa-gears"></i> <p>Parametros</p></button>
                 </div>
             </div>
@@ -48,10 +49,11 @@
                 <div class="content-info-body mb-3 ml-0 mr-3 mt-0">
 
                     <div class="title-body-active d-flex justify-content-center text-center m-3">
-                        <h1 id="title-body-id" class="title-body">Mes Activo</h1>
+                        <h1 id="title-body-id" class="title-body">Mes/Año Activo</h1>
                     </div>
 
                     <div class="listado-registro-parameters active-month-panel"> </div>
+                    <div class="listado-registro-parameters active-year-panel"> </div>
 
                 </div>
 

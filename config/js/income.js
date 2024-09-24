@@ -4,7 +4,7 @@ window.onload = function() {
     cargaSelects();
     asignaFuncionBotones();
     restartDefault();
-    getIncomes(getBankAcive()[0]['id_bank']);
+    getIncomes(getBankAcive()[0]['id_bank'], getYearActive()[0]['id_year_active']);
 }
 
 function formatMoney(nunero){
@@ -29,11 +29,13 @@ function desactivaBotonEdicion(charge = 0){
 
 function cargaSelects(){
 
-    const mesActual = getMonthAcive()[0]['id_month_active'];
+    const mesActual = getMonthActive()[0]['id_month_active'];
+    const anioActual = getYearActive()[0]['id_year_active'];
 
     cargaSelectBanco("#form-bank-ing");
     cargaTipoCuentaSelect("#form-tipo-ing");
     cargaMesesSelect("#form-month-active-ing", mesActual);
+    cargaAniosSelect("#form-year-active-ing", anioActual);
 
 }
 
@@ -60,11 +62,13 @@ function limpiarCampos(){
     const btnedit = document.querySelector(".edit-ing-btn");
     const btnsave = document.querySelector("#btn-save-ing");
     const fecha_ing = document.querySelector("#fecha-ing");
-    const mesActual = getMonthAcive()[0]['id_month_active'];
+    const mesActual = getMonthActive()[0]['id_month_active'];
+    const anioActual = getYearActive()[0]['id_year_active'];
 
     cargaSelectBanco("#form-bank-ing");
     cargaTipoCuentaSelect("#form-tipo-ing");
     cargaMesesSelect("#form-month-active-ing", mesActual);
+    cargaAniosSelect("#form-year-active-ing", anioActual);
 
     desc.value = "";
     monto.value = "";
@@ -76,9 +80,8 @@ function limpiarCampos(){
 
 function restartDefault(){
 
-    var datecomplete = new  Date();
-    var fullyear = datecomplete.getFullYear();
-    var mesActual = getMonthAcive()[0]['id_month_active'];
+    var fullyear = getYearActive()[0]['id_year_active'];
+    var mesActual = getMonthActive()[0]['id_month_active'];
 
     const desc = document.querySelector("#desc-flt");
 
@@ -90,7 +93,7 @@ function restartDefault(){
 
 }
 
-function getIncomes(id_bank = 0){
+function getIncomes(id_bank = 0, id_year_active = 0){
 
     const desc = document.querySelector("#desc-flt");
     const slcbank = document.querySelector("#bank-flt");
@@ -102,7 +105,7 @@ function getIncomes(id_bank = 0){
         'desc' : desc.value,
         'id_bank' : id_bank == 0 ? slcbank.value : id_bank,
         'mes' : slcmes.value,
-        'anio' : slcanio.value
+        'anio' : id_year_active == 0 ? slcanio.value : id_year_active
     };
 
     ajax(
@@ -181,6 +184,7 @@ function getIncome(id_income){
                 const fecha_ing = document.querySelector("#fecha-ing");
                 cargaSelectBanco("#form-bank-ing", element["id_bank"]);
                 cargaMesesSelect("#form-month-active-ing", element["id_month_active"]);
+                cargaAniosSelect("#form-year-active-ing", element["id_year_active"]);
                 cargaTipoCuentaSelect("#form-tipo-ing", element["type_trans"]);
 
                 desc.value = element["descripcion"];
@@ -204,6 +208,7 @@ function setIncomes(){
     const slctipo = document.querySelector("#form-tipo-ing");
     const slcbank = document.querySelector("#form-bank-ing");
     const slcmonth = document.querySelector("#form-month-active-ing");
+    const slcyear = document.querySelector("#form-year-active-ing");
 
     boolData = desc.value == "" ? false : true;
     if(boolData == false){ alert('Debe escribir la descripcion del ingreso'); return; }
@@ -225,7 +230,8 @@ function setIncomes(){
             'fecha_ing' : fecha_ing.value,
             'tipo' : slctipo.value,
             'id_bank' : slcbank.value,
-            'id_month_active' : slcmonth.value
+            'id_month_active' : slcmonth.value,
+            'id_year_active' : slcyear.value
         };
     
         ajax(
@@ -255,6 +261,7 @@ function updateIncomes(){
     const slctipo = document.querySelector("#form-tipo-ing");
     const slcbank = document.querySelector("#form-bank-ing");
     const slcmonth = document.querySelector("#form-month-active-ing");
+    const slcyear = document.querySelector("#form-year-active-ing");
 
     boolData = desc.value == "" ? false : true;
     if(boolData == false){ alert('Debe escribir la descripcion del ingreso'); return; }
@@ -277,7 +284,8 @@ function updateIncomes(){
             'fecha_ing' : fecha_ing.value,
             'tipo' : slctipo.value,
             'id_bank' : slcbank.value,
-            'id_month_active' : slcmonth.value
+            'id_month_active' : slcmonth.value,
+            'id_year_active' : slcyear.value
         };
     
         ajax(

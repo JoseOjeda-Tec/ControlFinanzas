@@ -1,0 +1,48 @@
+.form-filtro-ingresos{
+    font-size: 0.8rem;
+}
+
+.input-filtro-ingresos{
+    width: 10rem;
+    margin: 0.5rem;
+    height: 1.7rem;
+    border: none;
+    padding: 0;
+    text-align: center;
+}
+
+.select-ingresos{
+    width: 10rem;
+    margin: 0.5rem;
+    height: 2rem;
+    border: none;
+}
+
+.ing-btn-side{
+    width: 10rem;
+    margin: 0.5rem;
+    height: 2rem;
+    border: none;
+    padding: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+#btn-filter-ing, #btn-clean-filter-ing{
+    background-color: #6B7280;
+}
+
+.form-ingreso-mes-activo{
+    width: 60rem;
+    height: 2rem;
+    font-size: 0.8rem;
+}
+
+#form-meses-ing{ width: 8rem; }
+#form-anios-ing{ width: 6rem; margin-right: 0; }
+
+.form-ingresos{
+    width: 60rem;
+    height: 2rem;
+    font-size: 0.8rem;
+}

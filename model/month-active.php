@@ -12,7 +12,7 @@
             $this->db = new Db();
         }
 
-        public function getMonthsAcive(){
+        public function getMonthsActive(){
 
             $sql = "SELECT id_month_active, descripcion, numero, active FROM month_active";
             foreach ($this->db->con($sql) as $res) {
@@ -27,7 +27,7 @@
 
         }
 
-        public function getMonthAcive(){
+        public function getMonthActive(){
 
             $sql = "SELECT id_month_active, descripcion, numero, active FROM month_active WHERE active = 1";
             foreach ($this->db->con($sql) as $res) {

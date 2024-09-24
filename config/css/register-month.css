@@ -1,5 +1,9 @@
 .active-month-panel{
-    height: 44rem !important;
+    height: 21.5rem !important;
+}
+
+.active-year-panel{
+    height: 21.5rem !important;
 }
 
 .data-info-panel{

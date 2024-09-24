@@ -24,8 +24,9 @@
                     <img src="../../config/img/logo.png" alt="">
                 </div>
                 <div class="menus">
-                <button id="btn-menu-home" type="button" class="menu-btn-dark menu-btn menu-btn-active"><i class="fa-solid fa-house"></i> <p>Home</p></button>
-                <button id="btn-menu-income" type="button" class="menu-btn-dark menu-btn"><i class="fa-solid fa-money-bill-1"></i> <p>Ing/Egr</p></button>
+                    <button id="btn-menu-home" type="button" class="menu-btn-dark menu-btn menu-btn-active"><i class="fa-solid fa-house"></i> <p>Home</p></button>
+                    <button id="btn-menu-income" type="button" class="menu-btn-dark menu-btn"><i class="fa-solid fa-money-bill-1"></i> <p>Ing/Egr</p></button>
+                    <button id="btn-menu-payments" type="button" class="menu-btn-dark menu-btn"><i class="fa-solid fa-money-bill-1"></i> <p>Pagos</p></button>
                     <button id="btn-menu-parameters" type="button" class="menu-btn-dark menu-btn"><i class="fa-solid fa-gears"></i> <p>Parametros</p></button>
                 </div>
             </div>

@@ -10,9 +10,9 @@ function formatMoney(nunero){
 
 function asignaDatos(){
 
-    var datecomplete = new  Date();
-    var fullyear = datecomplete.getFullYear();
-    var mesActual = getMonthAcive()[0]['id_month_active'];
+    // var datecomplete = new  Date();
+    var fullyear = getYearActive()[0]['id_year_active'];
+    var mesActual = getMonthActive()[0]['id_month_active'];
 
     var parametros = {
         accion: 'getIncomesFilter',

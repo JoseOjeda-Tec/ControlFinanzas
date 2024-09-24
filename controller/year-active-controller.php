@@ -2,9 +2,9 @@
 
     require_once("../model/db.php");
     require_once("../model/all-logs.php");
-    require_once("../model/month-active.php");
+    require_once("../model/year-active.php");
 
-    $month_active = new Month_Active();
+    $year_active = new Year_Active();
     $all_logs = new All_Logs();
 
     header('Content-Type: application/json');
@@ -12,34 +12,34 @@
 
     switch ($data_input['accion']) {
 
-        case "getMonthsActive":
+        case "getYearsActive":
 
-            $array_data = $month_active->getMonthsActive();
+            $array_data = $year_active->getYearsActive();
             echo json_encode($array_data);
 
         break;
 
-        case "getMonthActive":
+        case "getYearActive":
 
-            $array_data = $month_active->getMonthActive();
+            $array_data = $year_active->getYearActive();
             echo json_encode($array_data);
 
         break;
 
-        case "updateMonthActive":
+        case "updateYearActive":
 
             $data = [
-                'id_month_active' => $data_input['id_month_active']
+                'id_year_active' => $data_input['id_year_active']
             ];
 
-            $response = $month_active->updateMonthActive($data);
+            $response = $year_active->updateYearActive($data);
 
             if($response == 1){
 
                 $data_logs = [
                     'desc' => 'Modificación de datos',
                     'module' => 'Parametros',
-                    'sub_module' => 'Mes Activo',
+                    'sub_module' => 'Mes/Año Activo',
                     'action' => 'Update',
                     'id_user' => '1'
                 ];

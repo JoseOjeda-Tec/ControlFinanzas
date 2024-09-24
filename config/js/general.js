@@ -1,10 +1,12 @@
 function asignaFuncionBotonesPrincipales(){
     const btnhome = document.querySelector("#btn-menu-home");
     const btnincome = document.querySelector("#btn-menu-income");
+    const btnpayments = document.querySelector("#btn-menu-payments");
     const btnparameters = document.querySelector("#btn-menu-parameters");    
 
     btnhome.addEventListener("click", ()=>{ location.href ="../../view/dashboard/dashboard.php"; });
     btnincome.addEventListener("click", ()=>{ location.href ="../../view/income/income.php"; });
+    btnpayments.addEventListener("click", ()=>{ location.href ="../../view/payments/payments.php"; });
     btnparameters.addEventListener("click", ()=>{ location.href ="../../view/parameter/register-bank.php"; });
 }
 
@@ -22,7 +24,7 @@ function asignaFuncionBotonesParametros(){
 
 }
 
-function getMonthAcive(){
+function getMonthActive(){
     
     let dataReturn = ajaxReturn(
         'POST', 
@@ -31,7 +33,23 @@ function getMonthAcive(){
             var response = JSON.parse(xhr.responseText);
             return response;
         }, 
-        { accion: 'getMonthAcive' }
+        { accion: 'getMonthActive' }
+    );
+
+    return dataReturn;
+
+}
+
+function getYearActive(){
+    
+    let dataReturn = ajaxReturn(
+        'POST', 
+        '../../controller/year-active-controller.php', 
+        (xhr) => {
+            var response = JSON.parse(xhr.responseText);
+            return response;
+        }, 
+        { accion: 'getYearActive' }
     );
 
     return dataReturn;
@@ -79,14 +97,28 @@ function cargaMesesSelect(className, messelect = 0){
 
 function cargaAniosSelect(className, anioselect = 0){
 
-    var html = "";
-    
-    html += "<option value=\"2023\" " + (2023 == anioselect ? " selected" : "") + ">2023</option>";
-    html += "<option value=\"2024\" " + (2024 == anioselect ? " selected" : "") + ">2024</option>";
-    html += "<option value=\"2025\" " + (2025 == anioselect ? " selected" : "") + ">2025</option>";
+    ajax(
+        'POST', 
+        '../../controller/year-active-controller.php', 
+        (xhr) => {
+            var response = JSON.parse(xhr.responseText);
+            var html = "";
 
-    const slc = document.querySelector(className);
-    slc.innerHTML = html;
+            if(Object.entries(response).length == 0){
+                html += "";
+            }else{
+                html += "";
+                response.forEach(element => { 
+                    html += "<option value=\"" + element["id_year_active"] + "\"" + (element["id_year_active"] == anioselect || element["anio"] == anioselect ? " selected" : "") + ">" + element["anio"] + "</option>";
+                });
+            }
+            
+            const sldyear = document.querySelector(className);
+            sldyear.innerHTML = "";
+            sldyear.innerHTML = html;
+        }, 
+        { accion: 'getYearsActive' }
+    );
 
 }
 
